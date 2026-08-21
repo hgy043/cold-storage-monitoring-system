@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>华为云IoT冷库数据监控系统</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- ECharts 本地化（验收现场可离线演示；如需 CDN 版可改回官方地址） -->
+    <script src="vendor/echarts.min.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v20M4.9 7l14.2 10M19.1 7L4.9 17"/><path d="M12 2c0 3-2 4-2 4s-2-1-2-4"/><path d="M12 22c0-3-2-4-2-4s-2 1-2 4"/></svg></span>
+      <h1>华为云IoT冷库数据监控系统</h1>
+    </div>
+    <div class="statusbar">
+      <span class="status-item">网关：<span class="dot" id="gwDot"></span><b id="gwState">--</b></span>
+      <span class="status-item">设备数：<b id="devCount">0</b></span>
+      <span class="status-item">在线：<b id="onlineCount">0</b></span>
+      <span class="status-item">实时：<span class="dot" id="wsDot"></span><b id="wsState">连接中</b></span>
+      <span class="status-item clock" id="clock">--</span>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="left">
+      <div class="panel-title">冷库实时监控（16 库 × 前后门）</div>
+      <div class="card-grid" id="cardGrid"></div>
+    </section>
+    <section class="right">
+      <div class="panel">
+        <div class="panel-head">
+          <div class="panel-title">温度曲线（平均 / 最大 / 最小）</div>
+          <select id="deviceSelect"></select>
+        </div>
+        <div class="chart" id="lineChart"></div>
+      </div>
+      <div class="panel">
+        <div class="panel-title">16 冷库当前平均温度对比（℃）</div>
+        <div class="chart" id="barChart"></div>
+      </div>
+    </section>
+  </main>
+
+  <section class="events">
+    <div class="panel-title">事件日志（最新 100 条）</div>
+    <div class="event-list" id="eventList"></div>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "node-gateway",
+  "version": "1.0.0",
+  "description": "冷库数据监控系统 Node.js 跨平台网关（与 C 网关协议一致）",
+  "type": "commonjs",
+  "main": "gateway.js",
+  "scripts": {
+    "start": "node gateway.js"
+  },
+  "dependencies": {
+    "mqtt": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

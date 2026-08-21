@@ -1,0 +1,13 @@
+{
+  "name": "virtual-bridge",
+  "version": "1.0.0",
+  "description": "华为云冷库虚拟数据转发程序（gec6818 终端数据源）",
+  "main": "virtual_bridge.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node virtual_bridge.js"
+  },
+  "dependencies": {
+    "mqtt": "^5.15.1"
+  }
+}

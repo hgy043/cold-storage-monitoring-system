@@ -1,0 +1,16 @@
+{
+  "name": "cold-storage-web",
+  "version": "1.0.0",
+  "private": true,
+  "type": "commonjs",
+  "description": "冷库数据监控系统 Web 后端（内嵌 MQTT broker + REST + WebSocket + 数据存储）与 H5 可视化大屏",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "aedes": "^0.51.3",
+    "mqtt": "^5.15.1",
+    "ws": "^8.18.0"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "deviceId": "YOUR_DEVICE_ID",
+  "secret": "YOUR_SECRET",
+  "serverUri": "ssl://<接入地址>.iotda-device.cn-south-4.myhuaweicloud.com:8883",
+  "tcpPort": 18830,
+  "reportIntervalMs": 2000,
+  "subDeviceIdPrefix": "",
+  "defaultAlarmThreshold": -20
+}

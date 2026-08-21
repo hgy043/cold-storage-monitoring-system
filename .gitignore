@@ -1,0 +1,30 @@
+# Node
+node_modules/
+npm-debug.log*
+
+# 运行时数据
+web/data/
+*.log
+logs/
+
+# 编译产物
+*.o
+*.d
+device/device
+device/ui/coldstorage_ui
+gateway/gateway
+gateway/MQTT_Demo.o
+
+# npm 缓存（VS/项目内缓存目录）
+.npm-cache-vs/
+**/.npm-cache/
+
+# 真实配置（密钥/设备标识不入库；复制 *.example.json 填写后使用）
+gateway/ClientConf.json
+node-gateway/conf.json
+virtual-server/conf.json
+web/config.json
+
+# 系统
+.DS_Store
+Thumbs.db

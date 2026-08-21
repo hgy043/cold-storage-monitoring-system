@@ -1,0 +1,37 @@
+{
+  "huaweiCloud": {
+    "enabled": false,
+    "host": "<接入地址>.iotda-device.cn-south-4.myhuaweicloud.com",
+    "port": 8883,
+    "tls": true,
+    "deviceId": "YOUR_DEVICE_ID",
+    "secret": "YOUR_SECRET",
+    "clientId": "YOUR_DEVICE_ID_0_0_2026081807"
+  },
+  "localBroker": "mqtt://127.0.0.1:1883",
+  "tcpPort": 18830,
+  "dataIntervalMs": 3000,
+  "alarmEveryMs": 120000,
+  "zones": [
+    {
+      "zone": "frozen",
+      "name": "冷冻区",
+      "setpoint": -25
+    },
+    {
+      "zone": "chilled",
+      "name": "冷藏区",
+      "setpoint": 2
+    },
+    {
+      "zone": "precool",
+      "name": "预冷区",
+      "setpoint": 10
+    },
+    {
+      "zone": "hall",
+      "name": "穿堂",
+      "setpoint": 15
+    }
+  ]
+}
