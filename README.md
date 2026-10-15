@@ -7,7 +7,7 @@
 ```
 ┌─────────────┐   TCP:18830   ┌──────────────────┐  MQTT($oc)  ┌──────────────────────┐
 │ 感知执行层    │ ───────────▶ │ 边缘网关层         │ ─────────▶ │ 云平台层              │
-│ gec6818 ×32  │   JSON 帧    │ C网关(华为SDK)     │            │ 华为云IoTDA           │
+│ Linux 板 ×32  │   JSON 帧    │ C网关(华为SDK)     │            │ 华为云IoTDA           │
 │ 温湿度/LED/  │              │ 或 Node网关(演示)  │ ◀───────── │ 或 web/server.js 内嵌  │
 │ 蜂鸣器        │ ◀─────────── │                  │  命令/属性   │ aedes broker           │
 └─────────────┘               └──────────────────┘            └──────────┬───────────┘
@@ -20,7 +20,7 @@
 
 > 注：上图是"多设备 → 网关 → 云 → 大屏"的通用架构。**使用精简链路**：
 > Ubuntu 上的 `virtual-server/` 转发程序充当"虚拟数据源 + 转发器"（每 3s 生成温区数据上报华为云设备 yihao，
-> 同时经 TCP 推送给 gec6818 终端），gec6818 是"终端 + 报警器"（显示 + 蜂鸣/LED + 确认报警），
+> 同时经 TCP 推送给 gec6818 终端）， ARM Cortex-A53 Linux 板 是"终端 + 报警器"（显示 + 蜂鸣/LED + 确认报警），
 > web 大屏只展示 1 号冷库。详见下文"当前验收链路"。
 
 ## 目录
@@ -29,7 +29,7 @@
 |---|---|
 | `docs/` | 架构、TCP 协议、MQTT 对接、华为云配置、部署联调、阶段验收方案、部署实操、开发与质量记录、部署排障记录（01-05、07-10，06 号未使用） |
 | `device/` | gec6818 设备端 C 程序（真实板 / PC 模拟双模式，历史网关模式） |
-| `device/ui/` | **gec6818 板端 LVGL 界面（800×480，5 页触摸 SCADA）**：主菜单/实时监测/温区总览/设备控制/能耗与设置 |
+| `device/ui/` | ** ARM Cortex-A53 Linux 板 板端 LVGL 界面（800×480，5 页触摸 SCADA）**：主菜单/实时监测/温区总览/设备控制/能耗与设置 |
 | `gateway/` | Ubuntu 边缘网关 C 程序（基于华为 AgentLite SDK，历史网关模式） |
 | `node-gateway/` | Node.js 跨平台网关（历史网关模式演示/协议教学，协议与 C 网关一致） |
 | `web/` | Node 后端（内嵌 MQTT broker + REST + WebSocket）+ H5 大屏 |
@@ -44,13 +44,13 @@
         │ 数据/命令                        │ TCP virt_data 帧 (18830)
         └─────────────────── 转发 ─────────┤
                                            ▼
-                              gec6818 终端（LVGL界面 + /dev/beep 蜂鸣 + LED）
+                              ARM Cortex-A53 Linux 板 终端（LVGL界面 + /dev/beep 蜂鸣 + LED）
                                 ├─ 显示 4 温区温度/曲线/状态（实时监测/温区总览/设备控制/能耗与设置）
                                 ├─ 报警 → 蜂鸣器响 + LED 亮 → 巡查触摸"取消报警" → 停蜂鸣并上报 confirm
                                 └─ 云端 confirm_alarm / set_beeper / set_led 命令亦可控制
 ```
 
-**gec6818 运行**：`./coldstorage_ui <转发程序IP> 1号冷库 NO.001 -20`（终端整合版，含 TCP 接收/蜂鸣/确认）。
+** ARM Cortex-A53 Linux 板 运行**：`./coldstorage_ui <转发程序IP> 1号冷库 NO.001 -20`（终端整合版，含 TCP 接收/蜂鸣/确认）。
 **Ubuntu 运行**：`cd virtual-server && npm install && cp conf.example.json conf.json && node virtual_bridge.js`（填入华为云凭证；`enabled: false` 走本地 broker 演示）。
 **web 大屏**：`cd web && npm install && node server.js` → http://127.0.0.1:8080（展示 1 号冷库）。
 
