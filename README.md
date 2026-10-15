@@ -90,8 +90,8 @@ Windows 可一键：`scripts\start-all.bat`。详见 `docs/05-部署与联调.md
 
 ## 真实部署（历史网关模式）
 
-Ubuntu 网关（C + 华为 SDK）与 gec6818 设备端见 `docs/04-华为云平台配置指南.md`、`docs/05-部署与联调.md`。
-gec6818 板端屏幕界面（LVGL）：`device/ui/`（`cd device/ui && make LVGL_ROOT=/home/gec/lvgl9`，依赖 `lvgl_linux_framebuffer-9` 移植工程）。
+Ubuntu 网关（C + 华为 SDK）与 ARM Cortex-A53 Linux 板 设备端见 `docs/04-华为云平台配置指南.md`、`docs/05-部署与联调.md`。
+ ARM Cortex-A53 Linux 板 板端屏幕界面（LVGL）：`device/ui/`（`cd device/ui && make LVGL_ROOT=/home/gec/lvgl9`，依赖 `lvgl_linux_framebuffer-9` 移植工程）。
 
 ## 核心契约
 
