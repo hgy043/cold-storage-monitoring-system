@@ -1,6 +1,6 @@
 # 冷库数据监控系统 - 设备端 Makefile
 # 本机编译：make
-# gec6818 交叉编译（32 位板子，用厂商工具链 arm-linux-gcc，soft float）：
+# ARM Cortex-A53 Linux 板  交叉编译（32 位板子，用厂商工具链 arm-linux-gcc，soft float）：
 #   make clean && make CC=arm-linux-gcc
 # 注意：勿用 apt 的 arm-linux-gnueabihf-gcc（hard float），与板子系统 ABI 不匹配会运行崩溃。
 
