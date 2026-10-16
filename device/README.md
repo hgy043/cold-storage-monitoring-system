@@ -1,6 +1,6 @@
 # device/ — 冷库数据监控系统 设备端
 
-gec6818 开发板与 PC（x86 Ubuntu）双模式设备端程序。纯 C99 + POSIX（socket/pthreads），
+ARM Cortex-A53 Linux 板 与 PC（x86 Ubuntu）双模式设备端程序。纯 C99 + POSIX（socket/pthreads），
 零第三方依赖，可在 ARM Linux 与 x86 Linux 上编译运行。
 
 ## 一、文件清单
@@ -26,7 +26,7 @@ make          # 生成可执行文件 device
 make clean    # 清理目标文件与可执行文件
 ```
 
-### gec6818 ARM 交叉编译
+### ARM Cortex-A53 Linux 板 -- ARM 交叉编译
 
 ```bash
 cd device
