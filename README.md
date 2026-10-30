@@ -50,7 +50,7 @@
                                 └─ 云端 confirm_alarm / set_beeper / set_led 命令亦可控制
 ```
 
-** ARM Cortex-A53 Linux 板 运行**：`./coldstorage_ui <转发程序IP> 1号冷库 NO.001 -20`（终端整合版，含 TCP 接收/蜂鸣/确认）。
+**ARM Cortex-A53 Linux 板 运行**：`./coldstorage_ui <转发程序IP> 1号冷库 NO.001 -20`（终端整合版，含 TCP 接收/蜂鸣/确认）。
 **Ubuntu 运行**：`cd virtual-server && npm install && cp conf.example.json conf.json && node virtual_bridge.js`（填入华为云凭证；`enabled: false` 走本地 broker 演示）。
 **web 大屏**：`cd web && npm install && node server.js` → http://127.0.0.1:8080（展示 1 号冷库）。
 
